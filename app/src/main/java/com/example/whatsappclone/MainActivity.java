@@ -29,8 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout.setupWithViewPager(mViewPager);
 
+        setUpTabLayout();
+
         mTabLayout.getTabAt(0).setIcon(R.drawable.tab_camera_selector);
 
+    }
+
+    private void setUpTabLayout() {
+        for (int i = 0; i < 4; i++) {
+            mTabLayout.getTabAt(i).setCustomView(R.layout.custom_tab);
+        }
     }
 
     @Override
