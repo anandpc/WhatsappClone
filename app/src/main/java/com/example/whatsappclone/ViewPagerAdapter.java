@@ -36,7 +36,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mTabTitles[position];
+        return null;
     }
 
 }

@@ -4,6 +4,9 @@
     <item>
         <shape android:shape="oval">
             <solid android:color="@drawable/tab_text_selector" />
+            <size
+                android:width="16dp"
+                android:height="16dp" />
         </shape>
     </item>
 </layer-list>

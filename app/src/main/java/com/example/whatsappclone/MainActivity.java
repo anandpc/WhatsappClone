@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,14 +33,27 @@ public class MainActivity extends AppCompatActivity {
 
         setUpTabLayout();
 
-        mTabLayout.getTabAt(0).setIcon(R.drawable.tab_camera_selector);
-
     }
 
     private void setUpTabLayout() {
-        for (int i = 0; i < 4; i++) {
-            mTabLayout.getTabAt(i).setCustomView(R.layout.custom_tab);
-        }
+        mTabLayout.getTabAt(0).setCustomView(R.layout.custom_tab_camera);
+
+        mTabLayout.getTabAt(1).setCustomView(R.layout.custom_tab);
+        View viewTab1 = mTabLayout.getTabAt(1).getCustomView();
+        TextView textView1 = viewTab1.findViewById(R.id.tab_text);
+        textView1.setText("chats");
+
+        mTabLayout.getTabAt(2).setCustomView(R.layout.custom_tab);
+        View viewTab2 = mTabLayout.getTabAt(2).getCustomView();
+        viewTab2.findViewById(R.id.tab_status_dot).setVisibility(View.VISIBLE);
+        viewTab2.findViewById(R.id.tab_status_text).setVisibility(View.GONE);
+        TextView textView2 = viewTab2.findViewById(R.id.tab_text);
+        textView2.setText("status");
+
+        mTabLayout.getTabAt(3).setCustomView(R.layout.custom_tab);
+        View viewTab3 = mTabLayout.getTabAt(3).getCustomView();
+        TextView textView = viewTab3.findViewById(R.id.tab_text);
+        textView.setText("calls");
     }
 
     @Override
