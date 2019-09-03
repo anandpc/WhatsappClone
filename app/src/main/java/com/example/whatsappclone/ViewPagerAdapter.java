@@ -17,13 +17,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return new ColorFragment();
+                return new ListFragment();
             case 1:
-                return new ColorFragment();
+                return new ListFragment();
             case 2:
-                return new ColorFragment();
+                return new ListFragment();
             case 3:
-                return new ColorFragment();
+                return new ListFragment();
         }
         return null;
     }

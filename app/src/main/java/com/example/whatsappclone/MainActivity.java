@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout layout = ((LinearLayout) ((LinearLayout) mTabLayout.getChildAt(0)).getChildAt(0));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
-        layoutParams.weight = 0.5f;
+        layoutParams.weight = 0.4f;
         layout.setLayoutParams(layoutParams);
     }
 
