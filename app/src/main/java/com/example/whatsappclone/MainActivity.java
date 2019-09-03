@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         View viewTab3 = mTabLayout.getTabAt(3).getCustomView();
         TextView textView = viewTab3.findViewById(R.id.tab_text);
         textView.setText("calls");
+
+        LinearLayout layout = ((LinearLayout) ((LinearLayout) mTabLayout.getChildAt(0)).getChildAt(0));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
+        layoutParams.weight = 0.5f;
+        layout.setLayoutParams(layoutParams);
     }
 
     @Override
