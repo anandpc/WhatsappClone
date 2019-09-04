@@ -1,13 +1,13 @@
-package com.example.whatsappclone;
+package com.example.whatsappclone.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+import com.example.whatsappclone.ListFragment;
 
-    private String[] mTabTitles = {"", "chats", "status", "calls"};
+public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -30,7 +30,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return mTabTitles.length;
+        return 4;
     }
 
     @Nullable
