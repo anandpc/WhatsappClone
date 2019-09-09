@@ -1,7 +1,6 @@
 package com.example.whatsappclone;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
-    private AppBarLayout mAppBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout = findViewById(R.id.tab_layout);
         mViewPager = findViewById(R.id.view_pager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
         mViewPager.setAdapter(viewPagerAdapter);
 
         mTabLayout.setupWithViewPager(mViewPager);
@@ -52,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView1 = viewTab1.findViewById(R.id.tab_text);
         textView1.setText("chats");
 
+        // default selection for chat tab
+        mTabLayout.getTabAt(1).select();
+
         mTabLayout.getTabAt(2).setCustomView(R.layout.custom_tab);
         View viewTab2 = mTabLayout.getTabAt(2).getCustomView();
         viewTab2.findViewById(R.id.tab_status_dot).setVisibility(View.VISIBLE);
@@ -64,10 +65,12 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = viewTab3.findViewById(R.id.tab_text);
         textView.setText("calls");
 
+        // sets weight to camera tab
         LinearLayout layout = ((LinearLayout) ((LinearLayout) mTabLayout.getChildAt(0)).getChildAt(0));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
         layoutParams.weight = 0.4f;
         layout.setLayoutParams(layoutParams);
+
     }
 
     @Override

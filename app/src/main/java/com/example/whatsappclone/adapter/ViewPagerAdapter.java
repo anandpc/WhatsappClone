@@ -1,23 +1,28 @@
 package com.example.whatsappclone.adapter;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.whatsappclone.CameraFragment;
 import com.example.whatsappclone.ListFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    private Context context;
+
+    public ViewPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context = context;
     }
 
     @Override
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return new ListFragment();
+                return new CameraFragment();
             case 1:
                 return new ListFragment();
             case 2:
@@ -38,5 +43,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return null;
     }
+
 
 }
