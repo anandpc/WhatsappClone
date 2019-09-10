@@ -18,10 +18,19 @@ import com.example.whatsappclone.adapter.RecyclerViewAdapter;
  */
 public class ListFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     public ListFragment() {
         // Required empty public constructor
+    }
+
+    public static ListFragment newInstance(int data, int VIEW_FLAG) {
+        ListFragment listFragment = new ListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("data", data);
+        bundle.putInt("view_flag", VIEW_FLAG);
+        listFragment.setArguments(bundle);
+        return listFragment;
     }
 
 
@@ -37,7 +46,11 @@ public class ListFragment extends Fragment {
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity());
+        Bundle bundle = getArguments();
+        int data = bundle.getInt("data");
+        int VIEW_FLAG = bundle.getInt("view_flag");
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity(), data, VIEW_FLAG);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
