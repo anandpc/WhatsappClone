@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.whatsappclone.AppConstants;
-import com.example.whatsappclone.CameraFragment;
-import com.example.whatsappclone.ListFragment;
+import com.example.whatsappclone.fragment.CameraFragment;
+import com.example.whatsappclone.fragment.ListFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 

@@ -40,8 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout.setupWithViewPager(mViewPager);
 
-        setUpTabLayout();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUpTabLayout();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     private void setUpTabLayout() {
@@ -73,16 +82,6 @@ public class MainActivity extends AppCompatActivity {
         layoutParams.weight = 0.4f;
         layout.setLayoutParams(layoutParams);
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
     }
 
     @Override
